@@ -28,9 +28,8 @@ public class App {
                 break;
             }
         }
-            if(operandInd==-1) {
-                System.out.println("строка не является математической операцией");
-            }
+            if(operandInd==-1) throw new Exception("строка не является математической операцией");
+
 
         String[] razdelenie = input.split(operand2[operandInd]);
 
@@ -44,6 +43,7 @@ public class App {
 
                 a1 = arab.arabToInt(razdelenie[0]);
                 b1 = arab.arabToInt(razdelenie[1]);
+                if(a1>10 || b1>10) throw new Exception("Числа должны быть от 1 до 10");
 
             } else {
 
@@ -74,9 +74,8 @@ public class App {
             } else {
                 System.out.println(result);
             }
-        } else {
-            System.out.println("используются одновременно разные системы счисления ");
-        }
+        } else throw new Exception("используются одновременно разные системы счисления ");
+
         return "";
     }
 
